@@ -1,0 +1,36 @@
+import { Component } from '@angular/core';
+import { Dev } from '../models/developer';
+import { Skill } from '../models/skill';
+
+@Component({
+  selector: 'app-developer',
+  templateUrl: './developer.component.html',
+  styleUrls: ['./developer.component.css']
+})
+export class DeveloperComponent {
+
+  dev: Dev;
+
+  constructor() {
+    this.dev = new Dev (
+      "Doe",
+      "John",
+      26,
+      "male",
+      "I am a fullstack developer specialized with Angular and Java",
+      [
+        new Skill (
+          "Java",
+          "https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/1200px-Java_Logo.svg.png",
+          "https://www.java.com"
+        ),
+        new Skill (
+          "Angular",
+          "data:image/png;base64,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",
+          "https://www.angular.com"
+          )
+      ]
+    )
+  }
+
+}
